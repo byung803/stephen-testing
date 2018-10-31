@@ -5,7 +5,8 @@ const CommentBox = (props) => {
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            console.log(input.value);
+            props.saveComment(input.value);
+            input.value = '';
         }}>
             <textarea cols="30" rows="10" ref={node => (input = node)}></textarea>
             <button type="submit">Submit</button>
