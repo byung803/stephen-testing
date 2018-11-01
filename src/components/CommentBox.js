@@ -1,17 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { saveComment } from '../actions';
 
-const CommentBox = (props) => {
-    let input;
-    return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            props.saveComment(input.value);
-            input.value = '';
-        }}>
-            <textarea cols="30" rows="10" ref={node => (input = node)}></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    );
+class CommentBox extends React.Component {
+    state = { comment: '' }
+
+    handleChange = (e) => {
+        const comment = e.target.value;
+        this.setState(() => ({ comment }))
+    }
+
+    render() {
+        return (
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                console.log(this.state.comment);
+                this.props.saveComment(this.state.comment);
+                this.setState({ comment: '' });
+
+            }}>
+                <textarea onChange={this.handleChange} cols="30" rows="10" value={this.state.comment} ></textarea>
+                <div>
+                    <button type="submit">Submit Text</button>
+                </div>
+            </form>
+
+        )
+    }
 }
 
-export default CommentBox;
+export default connect(null, { saveComment })(CommentBox)

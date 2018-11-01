@@ -1,12 +1,12 @@
 import React from 'react';
-import CommentBox from '../containers/AddComment';
-import CommentList from '../containers/VisibleComment';
+import CommentBox from '../components/CommentBox';
+import VisibleComment from '../containers/VisibleComment';
 
 const Template = () => {
     return (
         <div>
             <CommentBox />
-            <CommentList />
+            <VisibleComment />
         </div>
     );
 }

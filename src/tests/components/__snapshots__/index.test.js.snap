@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should test components index 1`] = `
+exports[`should take a snapshot of Index 1`] = `
 <div>
-  template 오늘은 뭘 만들까? 두근 두근
+  <Connect(CommentBox) />
+  <Connect(CommentList) />
 </div>
 `;
